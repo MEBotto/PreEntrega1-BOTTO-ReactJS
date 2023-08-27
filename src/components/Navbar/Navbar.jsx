@@ -1,12 +1,11 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import Badge from "react-bootstrap/Badge";
-import Carrito from "../../assets/carrito.png";
 import Logo from "../../assets/logo.png";
+import CartWidget from './CartWidget/CartWidget.jsx'
 import "./Navbar-styles.css";
 
-function NavbarExport(props) {
+function NavbarExport({count, funcionOnClick}) {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
@@ -17,12 +16,9 @@ function NavbarExport(props) {
               <Nav.Link href="">Inicio</Nav.Link>
               <Nav.Link href="">Tienda</Nav.Link>
           </Nav>
-          <div className="">
-            <div className="position-relative" onClick={props.funcionOnClick}>
-              <img src={Carrito} alt="" width="32px"/>
-              <Badge className="position-absolute top-0 start-100 translate-middle rounded-circle" bg="primary">{props.count}</Badge>
-            </div>
-          </div>  
+          <Nav>
+            <CartWidget count={count} funcionOnClick={funcionOnClick}/>
+          </Nav>          
         </Navbar.Collapse>
       </Container>
     </Navbar>

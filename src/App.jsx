@@ -5,8 +5,6 @@ import { useState } from 'react'
   
 function App() {
   const [estado, funcionCambiarEstado] = useState(0)
-  console.log(estado)
-
   const addCount = () =>{
     funcionCambiarEstado(estado + 1)
   }
